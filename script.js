@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    // Load content sections
+    // Load content sections (unchanged)
     const loadContent = async (id, file) => {
         try {
             const response = await fetch(file);
@@ -37,12 +37,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             mobileNav.classList.add('open');
             backdrop.classList.add('active');
             document.body.classList.add('no-scroll');
+            menuButton.classList.add('open'); // Add open class to the hamburger menu
         };
 
         const closeMenu = () => {
             mobileNav.classList.remove('open');
             backdrop.classList.remove('active');
             document.body.classList.remove('no-scroll');
+            menuButton.classList.remove('open'); // Remove open class from the hamburger menu
         };
 
         menuButton.addEventListener('click', (e) => {
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    // Hero Slider Functionality
+    // Hero Slider Functionality (unchanged)
     const heroBg = document.getElementById("hero-bg");
     const heroText = document.getElementById("hero-text");
     if (heroBg && heroText) {
