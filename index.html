@@ -12,26 +12,6 @@
     <div id="header"></div>
     <div id="body"></div>
     <div id="footer"></div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
-            const loadContent = async (id, file) => {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error(`Error loading ${file}: ${response.statusText}`);
-                    document.getElementById(id).innerHTML = await response.text();
-                } catch (error) {
-                    console.error(`Failed to load ${file}:`, error);
-                }
-            };
-
-            // Load all content in parallel
-            await Promise.all([
-                loadContent("header", "header.html"),
-                loadContent("body", "body.html"),
-                loadContent("footer", "footer.html")
-            ]);
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
