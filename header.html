@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
-    <style>/* Root Variables */
+    <title>G4M3 Forum</title>
+    <link rel="icon" type="image/svg+xml" href="G4M3Forumsvg.svg">
+    <style>
         :root {
             --logo-height: 40px;
             --button-padding: 10px 20px;
@@ -16,157 +17,126 @@
             --font-size-base: 16px;
             --font-size-title: 22px;
             --font-weight-bold: bold;
-            --color-bg-dark: #0f0f0f;
-            --color-bg-header: #10141a;
-            --color-bg-hover: #1b1f25;
-            --color-text-light: #ffffff;
-            --color-highlight: #E1C57A;
+            --Soft-Black: #0f0f0f;
+            --Shade-Black: #10141a;
+            --Shady-Black: #1b1f25;
+            --Bright-White: #ffffff;
+            --Bland-Yellow: #E1C57A;
         }
-        
-        /* Global Styles */
+
         body {
             font-family: var(--font-family);
             margin: 0;
             padding: 0;
-            background-color: var(--color-bg-dark);
-            color: var(--color-text-light);
+            background-color: var(--Soft-Black);
+            color: var(--Bright-White);
         }
-        
-        /* Header */
+
         .header-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: var(--color-bg-header);
+            background: var(--Shade-Black);
             padding: var(--header-padding);
             box-shadow: var(--box-shadow);
-            border-bottom: 2px solid var(--color-bg-hover);
+            border-bottom: 2px solid var(--Shady-Black);
             position: relative;
             z-index: 1100;
         }
-        
-        /* Logo */
+
         .header-logo {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .header-logo img {
             height: var(--logo-height);
         }
-        
+
         .header-logo .title {
             font-size: var(--font-size-title);
             font-weight: var(--font-weight-bold);
         }
-        
+
         .header-logo .title span {
-            color: var(--color-highlight);
+            color: var(--Bland-Yellow);
         }
-        
-        /* Navigation */
+
         .nav-container {
             display: flex;
             align-items: center;
             gap: var(--nav-gap);
         }
-        
+
         .nav-bar {
             display: flex;
             gap: var(--nav-gap);
         }
-        
-        .nav-bar a {
-            color: var(--color-text-light);
+
+        .nav-bar a, .mobile-nav a {
+            color: var(--Bright-White);
             text-decoration: none;
             font-size: var(--font-size-base);
             transition: color 0.3s;
         }
-        
-        .nav-bar a:hover {
-            color: var(--color-highlight);
+
+        .nav-bar a:hover, .mobile-nav a:hover {
+            color: var(--Bland-Yellow);
         }
-        
-        /* Buttons */
+
         .sign-up {
-            background: var(--color-highlight);
+            background: var(--Bland-Yellow);
             color: black;
             padding: var(--button-padding);
             border-radius: var(--button-radius);
             text-decoration: none;
             font-weight: var(--font-weight-bold);
-            transition: background 0.3s, transform 0.2s;
+            transition: background 0.3s;
         }
-        
+
         .sign-up:hover {
             background: #c9ac6d;
-            transform: scale(1.05);
         }
-        
-        /* Hamburger Menu (Mobile) */
+
         .hamburger-menu {
             display: none;
             cursor: pointer;
             position: relative;
             z-index: 1200;
         }
-        
+
         .hamburger-menu img {
             width: 30px;
             height: 30px;
             filter: invert(1);
         }
-        
-        /* Mobile Navigation */
+
         .mobile-nav {
             position: fixed;
             top: 0;
             left: -270px;
             width: 270px;
             height: 100vh;
-            background: var(--color-bg-header);
+            background: var(--Shade-Black);
             padding: 20px;
             text-align: left;
             z-index: 1000;
-            opacity: 0; 
-            visibility: hidden;
-            transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            transition: left 0.3s ease-in-out;
         }
         
         .mobile-nav.open {
             left: 0;
-            opacity: 1;
-            visibility: visible;
         }
-        
-        .mobile-nav a {
-            color: var(--color-text-light);
-            text-decoration: none;
-            padding: 15px;
-            display: block;
-            transition: background 0.3s ease-in-out;
-        }
-        
-        .mobile-nav a:hover {
-            background: var(--color-bg-hover);
-        }
-        
-        /* Disable Scroll When Menu is Open */
-        .no-scroll {
-            overflow: hidden;
-        }
-        
-        /* Responsive Design */
+
         @media (max-width: 768px) {
             .nav-container {
                 display: none;
             }
-        
             .hamburger-menu {
                 display: block;
             }
-        }        
+        }
     </style>
 </head>
 <body>
@@ -195,6 +165,19 @@
         <a href="#">SUPPORT</a>
         <a href="#" class="sign-up">SIGN UP</a>
     </div>
-    <script src="script.js" defer></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileNav");
+            menu.classList.toggle("open");
+        }
+
+        document.addEventListener("click", function(event) {
+            var menu = document.getElementById("mobileNav");
+            var menuButton = document.querySelector(".hamburger-menu");
+            if (menu.classList.contains("open") && !menu.contains(event.target) && !menuButton.contains(event.target)) {
+                menu.classList.remove("open");
+            }
+        });
+    </script>
 </body>
 </html>
