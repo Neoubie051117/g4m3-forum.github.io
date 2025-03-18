@@ -212,57 +212,5 @@
         <a href="#" class="nav-link">SUPPORT</a>
         <a href="#" class="sign-up">SIGN UP</a>
     </nav>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuButton = document.getElementById('menuButton');
-            const mobileNav = document.getElementById('mobileNav');
-            const backdrop = document.createElement('div');
-            backdrop.className = 'menu-backdrop';
-            document.body.appendChild(backdrop);
-
-            // Toggle functions
-            const toggleMenu = () => {
-                const isOpen = mobileNav.classList.toggle('open');
-                backdrop.classList.toggle('active', isOpen);
-                document.body.classList.toggle('no-scroll', isOpen);
-            };
-
-            const closeMenu = () => {
-                mobileNav.classList.remove('open');
-                backdrop.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            };
-
-            // Event listeners
-            menuButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-
-            backdrop.addEventListener('click', closeMenu);
-            
-            document.addEventListener('click', (e) => {
-                if (!mobileNav.contains(e.target) && !menuButton.contains(e.target)) {
-                    closeMenu();
-                }
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeMenu();
-            });
-
-            // WebSocket error handling
-            try {
-                const ws = new WebSocket('wss://your-valid-websocket-endpoint');
-                ws.onerror = (error) => {
-                    console.error('WebSocket error:', error);
-                    // Add your fallback logic here
-                };
-            } catch (error) {
-                console.error('WebSocket initialization failed:', error);
-            }
-        });
-    </script>
 </body>
 </html>

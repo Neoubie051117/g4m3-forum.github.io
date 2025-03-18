@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async () => {document.addEventListener("DOMContentLoaded", async () => {
     // Load content sections
     const loadContent = async (id, file) => {
         try {
@@ -25,9 +25,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.body.appendChild(backdrop);
 
         const toggleMenu = () => {
-            const isOpen = mobileNav.classList.toggle('open');
-            backdrop.classList.toggle('active', isOpen);
-            document.body.classList.toggle('no-scroll', isOpen);
+            const isOpen = mobileNav.classList.contains('open');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        };
+
+        const openMenu = () => {
+            mobileNav.classList.add('open');
+            backdrop.classList.add('active');
+            document.body.classList.add('no-scroll');
         };
 
         const closeMenu = () => {
@@ -42,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
         backdrop.addEventListener('click', closeMenu);
-        
+
         document.addEventListener('click', (e) => {
             if (!mobileNav.contains(e.target) && !menuButton.contains(e.target)) {
                 closeMenu();
@@ -53,6 +62,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (e.key === 'Escape') closeMenu();
         });
     }
+});
+
 
     // Hero Slider Functionality
     const heroBg = document.getElementById("hero-bg");
