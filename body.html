@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G4M3 Forum</title>
+    <style>
+        :root {
+    --font-family: Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-title: 22px;
+    --font-weight-bold: bold;
+    --Soft-Black: #0f0f0f;
+    --Shady-Black: #1b1f25;
+    --Bright-White: #ffffff;
+    --Bland-Yellow: #E1C57A;
+    --glow-white: 0 0 8px rgba(255, 255, 255, 0.8);
+    --glow-yellow: 0 0 8px rgba(225, 197, 122, 0.8);
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background-color: var(--Soft-Black);
+    color: var(--Bright-White);
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    filter: blur(10px);
+    transition: filter 0.5s ease-in-out, opacity 1s ease-in-out;
+    will-change: opacity;
+}
+
+.hero-bg.loaded {
+    filter: none;
+}
+
+.hero-text {
+    position: relative;
+    max-width: 90%;
+    transition: opacity 1s ease-in-out;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+    text-shadow: var(--glow-white);
+}
+
+.hero-text h1 span {
+    color: var(--Bland-Yellow);
+    text-shadow: var(--glow-yellow);
+}
+
+/* MAIN CONTENT */
+.body-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5vw;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px; /* Increased gap for better spacing */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* IMAGE CONTAINER */
+.image-container {
+    flex: 1;
+    min-width: 45%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* TEXT CONTAINER */
+.text-container {
+    flex: 1;
+    min-width: 45%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.vertical-line {
+    width: 5px;
+    height: 50px;
+    background-color: var(--Bland-Yellow);
+    margin-right: 10px;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-weight-bold);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.join-button {
+    background-color: var(--Bland-Yellow);
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    align-self: flex-start;
+    border-radius: 5px;
+}
+
+.join-button:hover {
+    background-color: #d4b06a;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .body-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .image-container, .text-container {
+        max-width: 80%;
+    }
+
+    .text-container {
+        align-items: center;
+    }
+
+    .join-button {
+        align-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh;
+    }
+
+    .body-content {
+        gap: 40px;
+    }
+
+    .image-container, .text-container {
+        min-width: 100%;
+        max-width: 90%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-bg" id="hero-bg" style="background-image: url('Game1.jpg');"></div>
+        <div class="hero-text" id="hero-text">
+            <h1>NOT ALL <span>TREASURE</span> IS SILVER AND GOLD.</h1>
+        </div>
+    </section>
+    
+    <section class="body-content">
+        <div class="image-container">
+            <img src="BodyContentImage.jpg" alt="Gaming Setup">
+        </div>
+        
+        <div class="text-container">
+            <div class="title-container">
+                <div class="vertical-line"></div>
+                <h2>WELCOME TO G4M3 FORUM</h2>
+            </div>
+            <p>G4M3 Forum is a gaming forum for PC gamers, where players unite to discuss the latest releases, share tips and tricks, and dive deep into gaming culture.</p>
+            <p>Whether you're looking for game recommendations, troubleshooting help, or just a place to talk about your favorite titles, G4M3 Forum has you.</p>
+            <button class="join-button">JOIN DISCUSSION</button>
+        </div>
+    </section>
+    
+    <script>
+     document.addEventListener("DOMContentLoaded", () => {
+        const heroBg = document.getElementById("hero-bg");
+        const heroText = document.getElementById("hero-text");
+
+        const slides = [
+            { image: "Game1.png", text: "NOT ALL TREASURE IS SILVER AND GOLD." },
+            { image: "Game2.png", text: "GAMING BRINGS PEOPLE TOGETHER" },
+            { image: "Game3.png", text: "NEVER GIVE UP!" },
+            { image: "Game4.png", text: "POWER ISN'T EVERYTHING" }
+        ];
+
+        let currentIndex = 0;
+        const slideDuration = 7000; 
+
+        function changeBackground() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            heroBg.style.opacity = "0";
+            heroText.style.opacity = "0";
+
+            setTimeout(() => {
+                heroBg.style.backgroundImage = `url('${slides[currentIndex].image}')`;
+                heroText.innerHTML = `<h1>${slides[currentIndex].text.replace(/(TREASURE|TOGETHER|NEVER|POWER)/g, '<span>$1</span>')}</h1>`;
+                heroBg.style.opacity = "1";
+                heroText.style.opacity = "1";
+            }, 1000);
+        }
+
+        setInterval(changeBackground, slideDuration);
+    });
+    </script>
+</body>
+</html>

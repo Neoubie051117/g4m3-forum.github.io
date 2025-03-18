@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <style>
+        :root {
+            --logo-height: 40px;
+            --button-padding: 10px 20px;
+            --button-radius: 5px;
+            --nav-gap: 30px;
+            --header-padding: 15px 40px;
+            --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            --font-family: Arial, sans-serif;
+            --font-size-base: 16px;
+            --font-size-title: 22px;
+            --font-weight-bold: bold;
+            --Soft-Black: #0f0f0f;
+            --Shade-Black: #10141a;
+            --Shady-Black: #1b1f25;
+            --Bright-White: #ffffff;
+            --Bland-Yellow: #E1C57A;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--Soft-Black);
+            color: var(--Bright-White);
+        }
+
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--Shade-Black);
+            padding: var(--header-padding);
+            box-shadow: var(--box-shadow);
+            border-bottom: 2px solid var(--Shady-Black);
+            position: relative;
+            z-index: 1100;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-logo img {
+            height: var(--logo-height);
+        }
+
+        .header-logo .title {
+            font-size: var(--font-size-title);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .header-logo .title span {
+            color: var(--Bland-Yellow);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: var(--nav-gap);
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: var(--nav-gap);
+        }
+
+        .nav-bar a {
+            color: var(--Bright-White);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: var(--Bland-Yellow);
+        }
+
+        .sign-up {
+            background: var(--Bland-Yellow);
+            color: black;
+            padding: var(--button-padding);
+            border-radius: var(--button-radius);
+            text-decoration: none;
+            font-weight: var(--font-weight-bold);
+            transition: background 0.3s;
+        }
+
+        .sign-up:hover {
+            background: #c9ac6d;
+        }
+
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1200;
+        }
+
+        .hamburger-menu img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -270px;
+            width: 270px;
+            height: 100vh;
+            background: var(--Shade-Black);
+            padding: 20px;
+            text-align: left;
+            z-index: 1000;
+            opacity: 0; 
+            visibility: hidden;
+            transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .mobile-nav.open {
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+
+        .mobile-nav a {
+            color: var(--Bright-White);
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+        }
+
+        .mobile-nav a:hover {
+            background: var(--Shady-Black);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bar">
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <img src="hamburger-menu.svg" alt="menu">
+        </div>
+        <div class="header-logo">
+            <img src="G4M3Forumsvg.svg" alt="G4M3 Forum Logo">
+            <div class="title">G<span>4</span>M<span>3</span> FORUM</div>
+        </div>
+        <div class="nav-container">
+            <nav class="nav-bar">
+                <a href="#">TRENDS</a>
+                <a href="#">EVENTS</a>
+                <a href="#">COMMUNITY</a>
+                <a href="#">SUPPORT</a>
+            </nav>
+            <a href="#" class="sign-up">SIGN UP</a>
+        </div>
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#">TRENDS</a>
+        <a href="#">EVENTS</a>
+        <a href="#">COMMUNITY</a>
+        <a href="#">SUPPORT</a>
+        <a href="#" class="sign-up">SIGN UP</a>
+    </div>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileNav");
+            menu.classList.toggle("open");
+        }
+
+        document.addEventListener("click", function(event) {
+            var menu = document.getElementById("mobileNav");
+            var menuButton = document.querySelector(".hamburger-menu");
+            if (menu.classList.contains("open") && !menu.contains(event.target) && !menuButton.contains(event.target)) {
+                menu.classList.remove("open");
+            }
+        });
+    </script>
+</body>
+</html>
