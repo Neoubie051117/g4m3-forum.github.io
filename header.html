@@ -141,7 +141,7 @@
 </head>
 <body>
     <header class="header-bar">
-        <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="hamburger-menu" id="menuButton">
             <img src="hamburger-menu.svg" alt="menu">
         </div>
         <div class="header-logo">
@@ -165,19 +165,32 @@
         <a href="#">SUPPORT</a>
         <a href="#" class="sign-up">SIGN UP</a>
     </div>
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("mobileNav");
-            menu.classList.toggle("open");
-        }
 
-        document.addEventListener("click", function(event) {
-            var menu = document.getElementById("mobileNav");
-            var menuButton = document.querySelector(".hamburger-menu");
-            if (menu.classList.contains("open") && !menu.contains(event.target) && !menuButton.contains(event.target)) {
-                menu.classList.remove("open");
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuButton = document.getElementById("menuButton");
+            const menu = document.getElementById("mobileNav");
+
+            function toggleMenu() {
+                menu.classList.toggle("open");
             }
+
+            // Attach event listener
+            if (menuButton) {
+                menuButton.addEventListener("click", toggleMenu);
+            }
+
+            document.addEventListener("click", function(event) {
+                if (
+                    menu.classList.contains("open") &&
+                    !menu.contains(event.target) &&
+                    !menuButton.contains(event.target)
+                ) {
+                    menu.classList.remove("open");
+                }
+            });
         });
     </script>
 </body>
+
 </html>
