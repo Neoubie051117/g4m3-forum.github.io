@@ -48,6 +48,7 @@ body {
     filter: blur(10px);
     transition: filter 0.5s ease-in-out, opacity 1s ease-in-out;
     will-change: opacity;
+    opacity: 1;
 }
 
 .hero-bg.loaded {
@@ -214,35 +215,45 @@ p {
     </section>
     
     <script>
-     document.addEventListener("DOMContentLoaded", () => {
-        const heroBg = document.getElementById("hero-bg");
-        const heroText = document.getElementById("hero-text");
-
-        const slides = [
-            { image: "Game1.png", text: "NOT ALL TREASURE IS SILVER AND GOLD." },
-            { image: "Game2.png", text: "GAMING BRINGS PEOPLE TOGETHER" },
-            { image: "Game3.png", text: "NEVER GIVE UP!" },
-            { image: "Game4.png", text: "POWER ISN'T EVERYTHING" }
-        ];
-
-        let currentIndex = 0;
-        const slideDuration = 7000; 
-
-        function changeBackground() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            heroBg.style.opacity = "0";
-            heroText.style.opacity = "0";
-
-            setTimeout(() => {
-                heroBg.style.backgroundImage = `url('${slides[currentIndex].image}')`;
-                heroText.innerHTML = `<h1>${slides[currentIndex].text.replace(/(TREASURE|TOGETHER|NEVER|POWER)/g, '<span>$1</span>')}</h1>`;
-                heroBg.style.opacity = "1";
-                heroText.style.opacity = "1";
-            }, 1000);
-        }
-
-        setInterval(changeBackground, slideDuration);
-    });
+        document.addEventListener("DOMContentLoaded", () => {
+            const heroBg = document.getElementById("hero-bg");
+            const heroText = document.getElementById("hero-text");
+        
+            const slides = [
+                { image: "Game1.png", text: "NOT ALL TREASURE IS SILVER AND GOLD." },
+                { image: "Game2.png", text: "GAMING BRINGS PEOPLE TOGETHER" },
+                { image: "Game3.png", text: "NEVER GIVE UP!" },
+                { image: "Game4.png", text: "POWER ISN'T EVERYTHING" }
+            ];
+        
+            let currentIndex = 0;
+            const slideDuration = 7000;
+        
+            // Preload images
+            slides.forEach(slide => {
+                const img = new Image();
+                img.src = slide.image;
+            });
+        
+            function changeBackground() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                
+                heroBg.style.transition = "opacity 1s ease-in-out";
+                heroText.style.transition = "opacity 1s ease-in-out";
+                heroBg.style.opacity = "0";
+                heroText.style.opacity = "0";
+        
+                setTimeout(() => {
+                    heroBg.style.backgroundImage = `url('${slides[currentIndex].image}')`;
+                    heroText.innerHTML = `<h1>${slides[currentIndex].text.replace(/(TREASURE|TOGETHER|NEVER|POWER)/g, '<span>$1</span>')}</h1>`;
+                    heroBg.style.opacity = "1";
+                    heroText.style.opacity = "1";
+                }, 1000);
+            }
+        
+            setInterval(changeBackground, slideDuration);
+        });
+        
     </script>
 </body>
 </html>
