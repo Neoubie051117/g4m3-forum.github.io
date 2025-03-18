@@ -1,5 +1,3 @@
-/* Combined CSS for G4M3 Forum */
-
 /* Global Variables */
 :root {
   --logo-height: 40px;
@@ -28,6 +26,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: auto; /* Enables scrolling */
+  -ms-overflow-style: none;  /* Hides scrollbar in IE and Edge */
+  scrollbar-width: none;  /* Hides scrollbar in Firefox */
+  display: none;
 }
 
 body {
@@ -105,9 +107,9 @@ body {
   background: #c9ac6d;
 }
 
-/* Mobile Menu Styles */
+/* Hamburger Menu Styles */
 .hamburger-menu {
-  display: block;
+  display: none; /* Hidden by default */
   cursor: pointer;
   padding: 8px;
   background: transparent;
@@ -127,6 +129,7 @@ body {
   transform: rotate(90deg); /* Rotate the icon when the menu is open */
 }
 
+/* Mobile Menu Styles */
 .mobile-nav {
   position: fixed;
   top: 0;
@@ -172,6 +175,31 @@ body {
 body.no-scroll {
   overflow: hidden;
   height: 100vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Show hamburger menu in mobile view */
+  .hamburger-menu {
+    display: block;
+  }
+
+  /* Hide desktop navigation in mobile view */
+  .nav-container {
+    display: none;
+  }
+
+  /* Ensure hamburger menu is visible when mobile menu is open */
+  .hamburger-menu.open {
+    display: block;
+  }
+
+  /* Adjust mobile menu styles */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 /* HERO SECTION */
@@ -391,82 +419,4 @@ p {
 
 .policy-links a:hover {
   color: var(--Bland-Yellow);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .body-content {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-  }
-
-  .image-container, .text-container {
-      max-width: 80%;
-  }
-
-  .text-container {
-      align-items: center;
-  }
-
-  .join-button {
-      align-self: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-      height: 40vh;
-  }
-
-  .body-content {
-      gap: 40px;
-  }
-
-  .image-container, .text-container {
-      min-width: 100%;
-      max-width: 90%;
-  }
-
-  .nav-container {
-      display: none;
-  }
-
-  .hamburger-menu {
-      display: block;
-  }
-
-  .mobile-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-  }
-
-  .footer-upper {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
-
-  .quote {
-      max-width: 100%;
-      margin-bottom: 15px;
-  }
-
-  .footer-lower {
-      flex-direction: column;
-      text-align: center;
-      padding: 15px 0;
-  }
-
-  .mail-button {
-      justify-content: center;
-  }
-
-  .policy-links {
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      margin-top: 10px;
-  }
 }
