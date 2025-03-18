@@ -38,15 +38,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             backdrop.classList.add('active');
             document.body.classList.add('no-scroll');
             menuButton.classList.add('open'); // Add open class to the hamburger menu
-          };
-          
-          const closeMenu = () => {
+        };
+
+        const closeMenu = () => {
             mobileNav.classList.remove('open');
             backdrop.classList.remove('active');
             document.body.classList.remove('no-scroll');
             menuButton.classList.remove('open'); // Remove open class from the hamburger menu
-          };
-          
+        };
+
         menuButton.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleMenu();
