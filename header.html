@@ -23,23 +23,22 @@
             --Bright-White: #ffffff;
             --Bland-Yellow: #E1C57A;
             --mobile-menu-width: 270px;
-          }
-          
-          * {
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-          }
-          
-          body {
+        }
+
+        body {
             font-family: var(--font-family);
             background-color: var(--Soft-Black);
             color: var(--Bright-White);
-            overflow-x: hidden;
-          }
-          
-          /* Header Styles */
-          .header-bar {
+        }
+
+        /* Header Styles */
+        .header-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -49,52 +48,51 @@
             border-bottom: 2px solid var(--Shady-Black);
             position: relative;
             z-index: 1000;
-          }
-          
-          .header-logo {
+        }
+
+        .header-logo {
             display: flex;
             align-items: center;
             gap: 10px;
-            z-index: 1100;
-          }
-          
-          .header-logo img {
+        }
+
+        .header-logo img {
             height: var(--logo-height);
-          }
-          
-          .title {
+        }
+
+        .title {
             font-size: var(--font-size-title);
             font-weight: var(--font-weight-bold);
-          }
-          
-          .title span {
+        }
+
+        .title span {
             color: var(--Bland-Yellow);
-          }
-          
-          /* Navigation Styles */
-          .nav-container {
+        }
+
+        /* Navigation Styles */
+        .nav-container {
             display: flex;
             align-items: center;
             gap: var(--nav-gap);
-          }
-          
-          .nav-bar {
+        }
+
+        .nav-bar {
             display: flex;
             gap: var(--nav-gap);
-          }
-          
-          .nav-link {
+        }
+
+        .nav-link {
             color: var(--Bright-White);
             text-decoration: none;
             font-size: var(--font-size-base);
             transition: color 0.3s;
-          }
-          
-          .nav-link:hover {
+        }
+
+        .nav-link:hover {
             color: var(--Bland-Yellow);
-          }
-          
-          .sign-up {
+        }
+
+        .sign-up {
             background: var(--Bland-Yellow);
             color: black;
             padding: var(--button-padding);
@@ -102,30 +100,30 @@
             text-decoration: none;
             font-weight: var(--font-weight-bold);
             transition: background 0.3s;
-          }
-          
-          .sign-up:hover {
+        }
+
+        .sign-up:hover {
             background: #c9ac6d;
-          }
-          
-          /* Mobile Menu Styles */
-          .hamburger-menu {
+        }
+
+        /* Mobile Menu Styles */
+        .hamburger-menu {
             display: none;
             cursor: pointer;
             padding: 8px;
             background: transparent;
             border: none;
-            z-index: 1200;
-          }
-          
-          .hamburger-icon {
+            z-index: 1002;
+        }
+
+        .hamburger-icon {
             width: 30px;
             height: 30px;
             filter: invert(1);
             transition: transform 0.3s;
-          }
-          
-          .mobile-nav {
+        }
+
+        .mobile-nav {
             position: fixed;
             top: 0;
             left: 0;
@@ -135,20 +133,20 @@
             padding: 80px 20px 20px;
             transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;
-            z-index: 1100;
-          }
-          
-          .mobile-nav.open {
+            z-index: 1001;
+        }
+
+        .mobile-nav.open {
             transform: translateX(0);
-          }
-          
-          .mobile-nav .sign-up {
+        }
+
+        .mobile-nav .sign-up {
             display: block;
             margin-top: 20px;
-          }
-          
-          /* Backdrop */
-          .menu-backdrop {
+        }
+
+        /* Backdrop */
+        .menu-backdrop {
             position: fixed;
             top: 0;
             left: 0;
@@ -159,76 +157,62 @@
             visibility: hidden;
             transition: opacity 0.3s;
             z-index: 1000;
-          }
-          
-          .menu-backdrop.active {
+        }
+
+        .menu-backdrop.active {
             opacity: 1;
             visibility: visible;
-          }
-          
-          @media (max-width: 768px) {
+        }
+
+        @media (max-width: 768px) {
             .nav-container {
-              display: none;
+                display: none;
             }
-            
+
             .hamburger-menu {
-              display: block;
+                display: block;
             }
-            
+
             .mobile-nav {
-              display: flex;
-              flex-direction: column;
-              gap: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
             }
-          }
-        /* Add no-scroll class */
-.no-scroll {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Fix mobile menu z-index */
-  .mobile-nav {
-    z-index: 1001; /* Higher than backdrop */
-  }
-  
-  .menu-backdrop {
-    z-index: 1000;
-  }
-  
-  .hamburger-menu {
-    z-index: 1002; /* Highest priority */
-  }
+        }
+
+        /* No Scroll Fix */
+        body.no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
     <header class="header-bar">
-        <div class="hamburger-menu" id="menuButton">
-            <img src="hamburger-menu.svg" alt="menu">
-        </div>
+        <button class="hamburger-menu" id="menuButton" aria-label="Toggle menu">
+            <img src="hamburger-menu.svg" alt="Menu icon" class="hamburger-icon">
+        </button>
         <div class="header-logo">
             <img src="G4M3Forumsvg.svg" alt="G4M3 Forum Logo">
             <div class="title">G<span>4</span>M<span>3</span> FORUM</div>
         </div>
         <div class="nav-container">
             <nav class="nav-bar">
-                <a href="#">TRENDS</a>
-                <a href="#">EVENTS</a>
-                <a href="#">COMMUNITY</a>
-                <a href="#">SUPPORT</a>
+                <a href="#" class="nav-link">TRENDS</a>
+                <a href="#" class="nav-link">EVENTS</a>
+                <a href="#" class="nav-link">COMMUNITY</a>
+                <a href="#" class="nav-link">SUPPORT</a>
             </nav>
             <a href="#" class="sign-up">SIGN UP</a>
         </div>
     </header>
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#">TRENDS</a>
-        <a href="#">EVENTS</a>
-        <a href="#">COMMUNITY</a>
-        <a href="#">SUPPORT</a>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#" class="nav-link">TRENDS</a>
+        <a href="#" class="nav-link">EVENTS</a>
+        <a href="#" class="nav-link">COMMUNITY</a>
+        <a href="#" class="nav-link">SUPPORT</a>
         <a href="#" class="sign-up">SIGN UP</a>
-    </div>
+    </nav>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -237,27 +221,26 @@
             const backdrop = document.createElement('div');
             backdrop.className = 'menu-backdrop';
             document.body.appendChild(backdrop);
-        
-            // Toggle mobile menu
+
+            // Toggle functions
             const toggleMenu = () => {
-                mobileNav.classList.toggle('open');
-                backdrop.classList.toggle('active');
-                document.body.classList.toggle('no-scroll');
+                const isOpen = mobileNav.classList.toggle('open');
+                backdrop.classList.toggle('active', isOpen);
+                document.body.classList.toggle('no-scroll', isOpen);
             };
-        
-            // Close menu
+
             const closeMenu = () => {
                 mobileNav.classList.remove('open');
                 backdrop.classList.remove('active');
                 document.body.classList.remove('no-scroll');
             };
-        
+
             // Event listeners
             menuButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 toggleMenu();
             });
-        
+
             backdrop.addEventListener('click', closeMenu);
             
             document.addEventListener('click', (e) => {
@@ -265,12 +248,22 @@
                     closeMenu();
                 }
             });
-        
+
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeMenu();
             });
+
+            // WebSocket error handling
+            try {
+                const ws = new WebSocket('wss://your-valid-websocket-endpoint');
+                ws.onerror = (error) => {
+                    console.error('WebSocket error:', error);
+                    // Add your fallback logic here
+                };
+            } catch (error) {
+                console.error('WebSocket initialization failed:', error);
+            }
         });
     </script>
 </body>
-
 </html>
