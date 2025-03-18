@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
     // Load content sections
     const loadContent = async (id, file) => {
         try {
@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", async () => {document.addEventList
             if (e.key === 'Escape') closeMenu();
         });
     }
-});
-
 
     // Hero Slider Functionality
     const heroBg = document.getElementById("hero-bg");
