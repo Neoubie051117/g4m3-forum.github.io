@@ -2,31 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Permissions-Policy" content="interest-cohort=()">
     <title>G4M3 Forum</title>
-    <link rel="icon" type="image/png" href="G4M3ForumLogo1.png">
+    <link rel="icon" type="image/png" href="G4M3ForumLogo1.png" loading="lazy">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Manually insert header content -->
     <div id="header"></div>
-
-    <!-- Manually insert body content -->
     <div id="body"></div>
-
-    <!-- Manually insert footer content -->
     <div id="footer"></div>
 
     <script>
-        // Load external HTML content using JavaScript
-        async function loadContent(id, file) {
-            let response = await fetch(file);
-            let text = await response.text();
-            document.getElementById(id).innerHTML = text;
-        }
+        document.addEventListener("DOMContentLoaded", async () => {
+            const loadContent = async (id, file) => {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error(`Error loading ${file}: ${response.statusText}`);
+                    document.getElementById(id).innerHTML = await response.text();
+                } catch (error) {
+                    console.error(`Failed to load ${file}:`, error);
+                }
+            };
 
-        loadContent("header", "header.html");
-        loadContent("body", "body.html");
-        loadContent("footer", "footer.html");
+            // Load all content in parallel
+            await Promise.all([
+                loadContent("header", "header.html"),
+                loadContent("body", "body.html"),
+                loadContent("footer", "footer.html")
+            ]);
+        });
     </script>
 </body>
 </html>
