@@ -181,6 +181,26 @@
               gap: 15px;
             }
           }
+        /* Add no-scroll class */
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Fix mobile menu z-index */
+  .mobile-nav {
+    z-index: 1001; /* Higher than backdrop */
+  }
+  
+  .menu-backdrop {
+    z-index: 1000;
+  }
+  
+  .hamburger-menu {
+    z-index: 1002; /* Highest priority */
+  }
     </style>
 </head>
 <body>
@@ -217,47 +237,39 @@
             const backdrop = document.createElement('div');
             backdrop.className = 'menu-backdrop';
             document.body.appendChild(backdrop);
-          
+        
             // Toggle mobile menu
             const toggleMenu = () => {
-              mobileNav.classList.toggle('open');
-              backdrop.classList.toggle('active');
-              document.body.classList.toggle('no-scroll');
+                mobileNav.classList.toggle('open');
+                backdrop.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
             };
-          
+        
             // Close menu
             const closeMenu = () => {
-              mobileNav.classList.remove('open');
-              backdrop.classList.remove('active');
-              document.body.classList.remove('no-scroll');
+                mobileNav.classList.remove('open');
+                backdrop.classList.remove('active');
+                document.body.classList.remove('no-scroll');
             };
-          
+        
             // Event listeners
             menuButton.addEventListener('click', (e) => {
-              e.stopPropagation();
-              toggleMenu();
+                e.stopPropagation();
+                toggleMenu();
             });
-          
+        
             backdrop.addEventListener('click', closeMenu);
             
             document.addEventListener('click', (e) => {
-              if (!mobileNav.contains(e.target) && !menuButton.contains(e.target)) {
-                closeMenu();
-              }
+                if (!mobileNav.contains(e.target) && !menuButton.contains(e.target)) {
+                    closeMenu();
+                }
             });
-          
+        
             document.addEventListener('keydown', (e) => {
-              if (e.key === 'Escape') closeMenu();
+                if (e.key === 'Escape') closeMenu();
             });
-          
-            // Prevent scrolling when menu is open
-            document.body.classList.remove('no-scroll');
-            const originalOverflow = document.body.style.overflow;
-            const originalPosition = document.body.style.position;
-            
-            document.body.style.overflow = originalOverflow;
-            document.body.style.position = originalPosition;
-          });
+        });
     </script>
 </body>
 
