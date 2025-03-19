@@ -80,7 +80,7 @@
                             <div class="profile-pic">
                                 <img src="${shuffledPictures[0]}" alt="Profile Picture"> <!-- Replace with your image path -->
                             </div>
-                            <textarea placeholder="Add a comment..."></textarea>
+                            <textarea style="width: 100%; height: 100px; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Add a comment..."></textarea>
                             <button class="post-comment">Post</button>
                         </div>
                         <div class="comments">
