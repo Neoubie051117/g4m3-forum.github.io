@@ -16,8 +16,8 @@
   --Bright-White: #ffffff;
   --Bland-Yellow: #E1C57A;
   --mobile-menu-width: 270px;
-  --glow-white: 0 0 8px rgba(255, 255, 255, 1);
-  --glow-yellow: 0 0 8px rgba(225, 197, 122, 1);
+  --glow-white: 0 0 15px rgba(255, 255, 255, 1); /* Increased blur radius */
+  --glow-yellow: 0 0 15px rgba(225, 197, 122, 1); /* Increased blur radius */
 }
 
 * {
@@ -365,7 +365,8 @@ p {
 }
 
 .socials a:hover img {
-  fill: var(--bland-yellow);
+  filter: brightness(0) invert(84%) sepia(32%) saturate(500%) hue-rotate(2deg); /* for yellow color */
+  box-shadow: var(--glow-white); /* applies the glow effect */
 }
 
 .footer-lower {
