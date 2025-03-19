@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             username: "MemeMaster",
             caption: "When you finally beat the boss after 50 tries and realize there's a second phase...",
-            image: "Trend.3png", // Replace with your image path
+            image: "Trend3.png", // Replace with your image path
             tag: "😂 Meme of the Week"
         },
         {
