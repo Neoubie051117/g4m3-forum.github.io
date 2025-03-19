@@ -108,6 +108,7 @@ body {
 .comment-section {
     display: none;
     margin-top: 12px;
+    width: 100%; /* Ensure comment section takes full width of the container */
 }
 
 .comment-section.visible {
@@ -119,10 +120,11 @@ body {
     gap: 8px;
     align-items: center;
     margin-bottom: 8px;
+    width: 100%; /* Ensure comment box takes full width */
 }
 
 .comment-box textarea {
-    flex: 1;
+    flex: 1; /* Allow textarea to take up remaining space */
     padding: 8px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -133,6 +135,29 @@ body {
     resize: none;
     height: 7%;
     border: solid 0.2px var(--Shady-Black);
+    min-width: 90%; /* Set a minimum width for the textarea */
+}
+.comment-box {
+    display: flex;
+    gap: 8px; /* Space between textarea and button */
+    align-items: center;
+    margin-bottom: 8px;
+    width: 100%; /* Ensure comment box takes full width */
+}
+
+.comment-box textarea {
+    flex: 1; /* Allow textarea to take up remaining space */
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--Shade-Black);
+    color: var(--Bright-White);
+    font-size: 0.875rem;
+    outline: none;
+    resize: none;
+    height: 7%;
+    border: solid 0.2px var(--Shady-Black);
+    min-width: fit-content; /* Set a minimum width for the textarea */
 }
 
 .comment-box textarea::placeholder {
@@ -141,13 +166,21 @@ body {
 }
 
 .comment-box button {
-    padding: 8px 12px;
+    padding: 8px 12px; /* Padding for better spacing */
     border: none;
     border-radius: 4px;
     background-color: var(--Bland-Yellow);
     color: var(--Soft-Black);
     cursor: pointer;
     font-size: 0.875rem;
+    text-align: center;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide any overflowed text */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    min-width: 120px; /* Set a minimum width for the button */
+    max-width: 120px; /* Set a maximum width for the button */
+    width: auto; /* Let the button adjust its width based on content */
+    flex-shrink: 0; /* Prevent the button from shrinking */
 }
 
 .comment-box button:hover {
@@ -165,12 +198,20 @@ body {
     display: flex;
     gap: 8px;
     align-items: center;
+    width: 100%; /* Ensure comment takes full width */
+}
+
+.profile-pic {
+    flex-shrink: 0; /* Prevent the profile pic from shrinking */
+    width: 28px; /* Fixed width */
+    height: 28px; /* Fixed height */
 }
 
 .profile-pic img {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+    width: 100%; /* Ensure the image fills the container */
+    height: 100%; /* Ensure the image fills the container */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
 }
 
 .comment strong {
@@ -207,7 +248,7 @@ body {
     }
 
     .interaction-buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: rows; /* Stack buttons vertically */
         gap: 8px; /* Add gap between buttons */
     }
 
@@ -217,7 +258,7 @@ body {
     }
 
     .comment-box {
-        flex-direction: column; /* Stack comment box elements vertically */
+        flex-direction: row; /* Stack comment box elements vertically */
     }
 
     .comment-box textarea {
@@ -231,5 +272,66 @@ body {
     .profile-pic img {
         width: 20px; /* Smaller profile picture for mobile */
         height: 20px;
+    }
+}
+
+/* Media Query for 450px and Lower */
+@media (max-width: 450px) {
+    .container {
+        padding: 0 8px; /* Reduce padding for very small screens */
+    }
+
+    .trend-item {
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .trend-item h3 {
+        font-size: 1rem; /* Smaller heading for very small screens */
+    }
+
+    .trend-item p {
+        font-size: 0.8125rem; /* Smaller text for very small screens */
+    }
+
+    .interaction-buttons {
+        flex-direction: row; /* Keep buttons in a row */
+        gap: 6px; /* Reduce gap between buttons */
+    }
+
+    .react-button, .comment-button, .share-button {
+        font-size: 0.75rem; /* Smaller font size for buttons */
+        padding: 6px 10px; /* Reduce padding for buttons */
+    }
+
+    .comment-box {
+        flex-direction: row; /* Keep textarea and button in a row */
+        gap: 6px; /* Reduce gap between elements */
+    }
+
+    .comment-box textarea {
+        font-size: 0.75rem; /* Smaller font size for textarea */
+        padding: 6px; /* Reduce padding for textarea */
+    }
+
+    .comment-box button {
+        font-size: 0.75rem; /* Smaller font size for button */
+        padding: 6px 10px; /* Reduce padding for button */
+        min-width: 70px; /* Smaller min-width for button */
+        max-width: 70px; /* Smaller max-width for button */
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+    .profile-pic img {
+        width: 18px; /* Even smaller profile picture */
+        height: 18px;
+    }
+
+    .comment strong {
+        font-size: 0.75rem; /* Smaller font size for comment username */
+    }
+
+    .comment p {
+        font-size: 0.75rem; /* Smaller font size for comment text */
     }
 }
