@@ -1,0 +1,144 @@
+/* General Styles */
+:root {
+    --Soft-Black: #0f0f0f;
+    --Shade-Black: #10141a;
+    --Shady-Black: #1b1f25;
+    --Bright-White: #ffffff;
+    --Soft-White: #fcfcfc;
+    --Bland-Yellow: #E1C57A;
+    --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--Soft-Black);
+    color: var(--Bright-White);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Events Section */
+.events-section {
+    padding: 20px;
+}
+
+.container {
+    max-width: 550px;
+    margin: 0 auto;
+    width: 100%; /* Ensure container takes full width on smaller screens */
+}
+
+/* Event Item */
+.event-item {
+    background-color: var(--Shady-Black);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-item h3 {
+    font-size: 1.25rem;
+    margin: 0 0 8px;
+    color: var(--Bright-White);
+    font-weight: 600;
+}
+
+.event-item p {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    margin: 0 0 12px;
+    color: var(--Bright-White);
+}
+
+/* Image Container */
+.event-image-container {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.event-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Event Details */
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.event-details p {
+    margin: 0;
+}
+
+.event-details strong {
+    color: var(--Bland-Yellow);
+}
+
+/* Register Button */
+.register-button {
+    background-color: var(--Bland-Yellow);
+    color: var(--Soft-Black);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.register-button:hover {
+    background-color: #d4b06a;
+}
+
+/* Media Queries for Mobile View */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .event-item {
+        padding: 12px;
+    }
+
+    .event-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .event-item p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 0 8px;
+    }
+
+    .event-item {
+        padding: 10px;
+    }
+
+    .event-item h3 {
+        font-size: 1rem;
+    }
+
+    .event-item p {
+        font-size: 0.8125rem;
+    }
+}
+
+.nav-link.active {
+    color: var(--Bland-Yellow);
+}

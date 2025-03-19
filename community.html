@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Permissions-Policy" content="interest-cohort=()">
+    <title>G4M3 Forum - Community</title>
+    <link rel="icon" type="image/png" href="G4M3ForumLogo1.png" loading="lazy">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="community.css">
+    <script src="script.js" defer></script>
+    <script src="community.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-bar">
+        <button class="hamburger-menu" id="menuButton" aria-label="Toggle menu">
+            <img src="hamburger-menu.svg" alt="Menu icon" class="hamburger-icon">
+        </button>
+        <div class="header-logo">
+            <img id="logo" src="G4M3Forumsvg.svg" alt="G4M3 Forum Logo">
+            <div class="title">G<span>4</span>M<span>3</span> FORUM</div>
+        </div>
+        <div class="nav-container">
+            <nav class="nav-bar">
+                <a href="trends.html" class="nav-link">TRENDS</a>
+                <a href="events.html" class="nav-link">EVENTS</a>
+                <a href="community.html" class="nav-link active">COMMUNITY</a> <!-- Add the "active" class -->
+                <a href="support.html" class="nav-link">SUPPORT</a>
+            </nav>
+            <a href="sign-up.html" class="sign-up">SIGN UP</a>
+        </div>
+    </header>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="trends.html" class="nav-link">TRENDS</a>
+        <a href="events.html" class="nav-link">EVENTS</a>
+        <a href="community.html" class="nav-link active">COMMUNITY</a> <!-- Add the "active" class -->
+        <a href="support.html" class="nav-link">SUPPORT</a>
+        <a href="sign-up.html" class="sign-up">SIGN UP</a>
+    </nav>
+
+    <!-- Community Section -->
+    <section class="community-section">
+        <div class="container">
+            <h1>Join the Community</h1><br>
+            <!-- Communities will be dynamically generated here -->
+            <div class="community-grid" id="community-container"></div>
+        </div>
+    </section>
+</body>
+</html>

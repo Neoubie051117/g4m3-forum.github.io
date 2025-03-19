@@ -6,25 +6,25 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             username: "Kaiju_10",
             caption: "A new RPG set in space is making waves. Could this be the next big thing?",
-            image: "Game1.png", // Replace with your image path
+            image: "Trend1.png", // Replace with your image path
             tag: "🔥 New Open-World Game Announced"
         },
         {
             username: "PixelPioneer",
             caption: "Why do modern games feel so repetitive?",
-            image: "Game2.png", // Replace with your image path
+            image: "Trend2.png", // Replace with your image path
             tag: "🎮 Reddit's Hottest Gaming Discussion"
         },
         {
             username: "MemeMaster",
             caption: "When you finally beat the boss after 50 tries and realize there's a second phase...",
-            image: "Game3.png", // Replace with your image path
+            image: "Trend.3png", // Replace with your image path
             tag: "😂 Meme of the Week"
         },
         {
             username: "PatchNotesBot",
             caption: "- Fixed infinite loading screen issue.\n- Nerfed OP sniper rifle in multiplayer.\n- Added new customization options.",
-            image: "Game4.png", // Replace with your image path
+            image: "Trend4.png", // Replace with your image path
             tag: "🛠️ Patch Notes - March 2025"
         }
     ];
