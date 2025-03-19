@@ -27,6 +27,7 @@
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  outline: none;
 }
 
 body {

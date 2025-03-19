@@ -6,40 +6,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Toggle password visibility
     passwordToggle.addEventListener("click", () => {
-        const isPasswordVisible = passwordInput.type === "text";
-        passwordInput.type = isPasswordVisible ? "password" : "text";
-        passwordToggle.src = isPasswordVisible ? "password-hide.svg" : "password-show.svg";
+        const isVisible = passwordInput.type === "text";
+        passwordInput.type = isVisible ? "password" : "text";
+        passwordToggle.src = isVisible ? "password-hide.svg" : "password-show.svg";
     });
 
-    // Prevent autofill styling issues
-    inputs.forEach(input => {
-        input.addEventListener("input", () => {
-            if (input.value) {
-                input.classList.add("filled");
-            } else {
-                input.classList.remove("filled");
+    // Handle autofill styling
+    const handleAutofill = (input) => {
+        requestAnimationFrame(() => {
+            const hasValue = input.value.length > 0;
+            input.classList.toggle("filled", hasValue);
+            if (hasValue) {
+                input.style.backgroundColor = "transparent";
+                input.style.color = "white";
             }
         });
+    };
 
-        // Fix autofill background issue
+    inputs.forEach(input => {
+        // Apply autofill fix when the page loads
+        handleAutofill(input);
+
+        // Listen for input changes
+        input.addEventListener("input", () => handleAutofill(input));
+
+        // Detect autofill using focus and blur events
+        input.addEventListener("focus", () => handleAutofill(input));
+        input.addEventListener("blur", () => handleAutofill(input));
+
+        // Detect autofill animation (some browsers)
         input.addEventListener("animationstart", (e) => {
-            if (e.animationName === "onAutoFillStart") {
-                input.classList.add("filled");
-            }
-            if (e.animationName === "onAutoFillCancel") {
-                input.classList.remove("filled");
-            }
+            if (e.animationName === "onAutoFillStart") handleAutofill(input);
+            if (e.animationName === "onAutoFillCancel") handleAutofill(input);
         });
     });
 
     signupForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const firstName = document.getElementById("firstName").value;
-        const lastName = document.getElementById("lastName").value;
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = passwordInput.value.trim();
 
         if (!firstName || !lastName || !username || !email || !password) {
             alert("Please fill out all fields.");

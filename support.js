@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Function to handle autofill styling
+    function handleAutofill(input) {
+        if (input.matches(":-webkit-autofill")) {
+            input.style.backgroundColor = "var(--Shade-Black)"; // Set background color
+            input.style.color = "var(--Bright-White)"; // Set text color
+        }
+    }
+
+    // Detect autofill on form inputs
+    const inputs = document.querySelectorAll(".form-group input, .form-group textarea");
+
+    inputs.forEach(input => {
+        // Check on page load
+        handleAutofill(input);
+
+        // Check on input change (for dynamic autofill)
+        input.addEventListener("change", () => handleAutofill(input));
+    });
+
     // Donation Buttons
     const donationAmounts = document.querySelectorAll(".donation-amount");
     const customAmountInput = document.getElementById("customAmount");

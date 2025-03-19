@@ -136,6 +136,17 @@ p {
     resize: vertical;
 }
 
+/* Fix auto-fill background and text color */
+/* Fix auto-fill background and text color */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--Shade-Black) inset !important; /* Remove white background */
+    -webkit-text-fill-color: var(--Bright-White) !important; /* Set auto-fill text color to white */
+    border: 1px solid var(--Bland-Yellow) !important; /* Retain the yellow border */
+}
+
 .submit-button {
     background-color: var(--Bland-Yellow);
     color: var(--Soft-Black);
@@ -156,4 +167,8 @@ p {
     color: var(--Bland-Yellow);
     text-align: center;
     margin-top: 10px;
+}
+
+.nav-link.active {
+    color: var(--Bland-Yellow);
 }
