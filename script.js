@@ -121,4 +121,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }, 100);
     }
+
+    // Logo Click Functionality
+    const logo = document.getElementById('logo');
+    if (logo) {
+        logo.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+        logo.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                window.location.href = 'index.html';
+            }
+        });
+    }
 });
