@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
     const inputs = document.querySelectorAll(".input-container input");
+    const passwordToggle = document.getElementById("passwordToggle");
+    const passwordInput = document.getElementById("password");
+
+    // Toggle password visibility
+    passwordToggle.addEventListener("click", () => {
+        const isPasswordVisible = passwordInput.type === "text";
+        passwordInput.type = isPasswordVisible ? "password" : "text";
+        passwordToggle.src = isPasswordVisible ? "password-hide.svg" : "password-show.svg";
+    });
 
     // Prevent autofill styling issues
     inputs.forEach(input => {

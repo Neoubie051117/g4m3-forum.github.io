@@ -45,9 +45,9 @@ p {
 }
 
 .input-container {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
     background-color: var(--Shade-Black);
     border: 1px solid var(--Bland-Yellow);
     border-radius: 4px;
@@ -62,6 +62,7 @@ p {
     color: var(--Bright-White);
     font-size: 1rem;
     outline: none;
+    padding-right: 40px; /* Add space for the eye icon */
 }
 
 .input-container input::placeholder {
@@ -70,6 +71,20 @@ p {
 
 .input-container:focus-within {
     border: 1px solid #ffcc00;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    filter: invert(1); /* Make the icon white */
+    transition: filter 0.3s;
+}
+
+.password-toggle:hover {
+    filter: invert(84%) sepia(32%) saturate(500%) hue-rotate(2deg); /* Yellow color on hover */
 }
 
 /* Prevent autofill background */

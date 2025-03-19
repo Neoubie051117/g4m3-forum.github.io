@@ -100,6 +100,31 @@ input:-webkit-autofill:active {
     background-color: #d4b06a;
 }
 
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    width: 100%;
+    padding-right: 40px; /* Add space for the eye icon */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    filter: invert(1); /* Make the icon white */
+    transition: filter 0.3s;
+}
+
+.password-toggle:hover {
+    filter: invert(84%) sepia(32%) saturate(500%) hue-rotate(2deg); /* Yellow color on hover */
+}
+
 /* Login Prompt */
 .login-prompt {
     text-align: center;
