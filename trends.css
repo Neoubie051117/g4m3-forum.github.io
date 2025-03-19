@@ -1,11 +1,11 @@
 /* General Styles */
 :root {
     --Soft-Black: #0f0f0f;
-    --Shade-Black: #10141a;
-    --Shady-Black: #1b1f25;
+    --Shade-Black: #10141a; /* Original color */
+    --Shady-Black: #1b1f25; /* Original color */
     --Bright-White: #ffffff;
     --Bland-Yellow: #E1C57A;
-    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 body {
@@ -16,215 +16,123 @@ body {
     padding: 0;
 }
 
-/* Header Section */
-.header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: var(--Shade-Black);
-    box-shadow: var(--box-shadow);
-    border-bottom: 2px solid var(--Shady-Black);
-}
-
-.header-logo {
-    display: flex;
-    align-items: center;
-}
-
-.header-logo img {
-    height: 40px;
-    margin-right: 10px;
-}
-
-.title {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--Bland-Yellow);
-}
-
-.title span {
-    color: var(--Bright-White);
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-}
-
-.nav-bar {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-link {
-    color: var(--Bright-White);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-link:hover {
-    color: var(--Bland-Yellow);
-}
-
-.sign-up {
-    background-color: var(--Bland-Yellow);
-    color: var(--Soft-Black);
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 20px;
-    transition: background 0.3s;
-}
-
-.sign-up:hover {
-    background-color: #c9ac6d;
-}
-
-.hamburger-menu {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.hamburger-icon {
-    width: 24px;
-    height: 24px;
-    filter: invert(1);
-}
-
-.mobile-nav {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    background-color: var(--Shady-Black);
-    box-shadow: var(--box-shadow);
-}
-
 /* Trends Section */
 .trends-section {
-    padding: 40px 20px;
+    padding: 20px;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 100%; /* Adjusted for a more compact look */
     margin: 0 auto;
-    text-align: center;
 }
 
+/* Trend Item */
 .trend-item {
     background-color: var(--Shady-Black);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 8px; /* Slightly rounded corners */
+    padding: 16px; /* Reduced padding */
+    margin-bottom: 16px; /* Reduced margin */
     box-shadow: var(--box-shadow);
-    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    justify-items: center;
 }
 
 .trend-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--Bland-Yellow);
+    font-size: 1.25rem; /* Smaller heading */
+    margin-bottom: 8px; /* Reduced margin */
+    color: var(--Bright-White);
+    font-weight: 600; /* Semi-bold */
 }
 
 .trend-item p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
+    font-size: 0.9375rem; /* Smaller text */
+    line-height: 1.4;
+    margin-bottom: 12px; /* Reduced margin */
     color: var(--Bright-White);
 }
 
+/* Image Container */
 .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px; /* Slightly rounded corners */
 }
 
 .image-container img {
-    max-width: 100%;
-    border-radius: 10px;
-    object-fit: cover;
+    width: 100%; /* Ensure the image fills the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline spacing */
+    border-radius: 8px; /* Match container */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Interaction Buttons */
 .interaction-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* Evenly space buttons */
     align-items: center;
-    padding: 0 20px;
-    margin-top: 10px;
+    padding: 8px 0; /* Reduced padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    margin-top: 12px; /* Reduced margin */
 }
 
 .react-button, .comment-button, .share-button {
-    background-color: var(--Soft-Black);
+    background: none;
     color: var(--Bright-White);
     border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
+    padding: 8px 12px; /* Reduced padding */
+    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.2s;
     display: flex;
     align-items: center;
-    gap: 5px;
-    flex: 1;
-    margin: 0 5px;
-}
-
-.react-button {
-    justify-content: flex-start;
-}
-
-.comment-button {
-    justify-content: center;
-}
-
-.share-button {
-    justify-content: flex-end;
+    gap: 6px; /* Reduced gap */
+    font-size: 0.875rem; /* Smaller text */
 }
 
 .react-button:hover, .comment-button:hover, .share-button:hover {
-    background-color: var(--Bland-Yellow);
-    color: var(--Soft-Black);
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
 }
 
 .interaction-buttons img {
     filter: brightness(0) invert(1);
-    width: 20px;
-    height: 20px;
+    width: 18px; /* Smaller icons */
+    height: 18px;
 }
 
+/* Comment Section */
 .comment-section {
     display: none;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .comment-box {
     display: flex;
-    gap: 10px;
+    gap: 8px; /* Reduced gap */
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Reduced margin */
 }
 
 .comment-box textarea {
     flex: 1;
     padding: 8px;
-    border-radius: 5px;
+    border-radius: 4px;
     border: none;
     background-color: var(--Shade-Black);
     color: var(--Bright-White);
+    font-size: 0.875rem; /* Smaller text */
 }
 
 .comment-box button {
-    padding: 8px 16px;
+    padding: 8px 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     background-color: var(--Bland-Yellow);
     color: var(--Soft-Black);
     cursor: pointer;
+    font-size: 0.875rem; /* Smaller text */
 }
 
 .comment-box button:hover {
@@ -234,55 +142,32 @@ body {
 .comments {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px; /* Reduced gap */
 }
 
 .comment {
     display: flex;
-    gap: 10px;
+    gap: 8px; /* Reduced gap */
     align-items: center;
 }
 
 .profile-pic img {
-    width: 30px;
-    height: 30px;
+    width: 28px; /* Smaller profile picture */
+    height: 28px;
     border-radius: 50%;
 }
 
 .comment strong {
     color: var(--Bland-Yellow);
+    font-size: 0.875rem; /* Smaller text */
 }
 
 .comment p {
     margin: 0;
     color: var(--Bright-White);
+    font-size: 0.875rem; /* Smaller text */
 }
 
-/* Mobile View */
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block;
-    }
-
-    .nav-container {
-        display: none;
-    }
-
-    .mobile-nav {
-        display: flex;
-    }
-
-    .trend-item {
-        padding: 15px;
-    }
-
-    .interaction-buttons {
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .react-button, .comment-button, .share-button {
-        width: auto;
-        justify-content: center;
-    }
+.nav-link.active {
+    color: var(--Bland-Yellow); /* Apply the active color */
 }
