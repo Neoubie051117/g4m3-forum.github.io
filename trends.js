@@ -81,7 +81,7 @@
                                 <img src="${shuffledPictures[0]}" alt="Profile Picture"> <!-- Replace with your image path -->
                             </div>
                             <textarea style="width: 100%; height: 100px; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Add a comment..."></textarea>
-                            <button class="post-comment">Post</button>
+                            <button class="post-comment">Comment</button>
                         </div>
                         <div class="comments">
                             ${shuffledUsers.map((user, i) => `

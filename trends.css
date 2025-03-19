@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-    max-width: 100%; /* Adjusted for a more compact look */
+    max-width: 550px; /* Adjusted for a more compact look */
     margin: 0 auto;
 }
 
@@ -39,7 +39,7 @@ body {
 
 .trend-item h3 {
     font-size: 1.25rem; /* Smaller heading */
-    margin-bottom: 8px; /* Reduced margin */
+    margin: 0 0 8px; /* Reduced margin */
     color: var(--Bright-White);
     font-weight: 600; /* Semi-bold */
 }
@@ -47,7 +47,7 @@ body {
 .trend-item p {
     font-size: 0.9375rem; /* Smaller text */
     line-height: 1.4;
-    margin-bottom: 12px; /* Reduced margin */
+    margin: 0 0.75em 12px; /* Reduced margin */
     color: var(--Bright-White);
 }
 
@@ -123,6 +123,13 @@ body {
     background-color: var(--Shade-Black);
     color: var(--Bright-White);
     font-size: 0.875rem; /* Smaller text */
+    outline: none; /* Remove the border outline */
+    resize: none; /* Disable resizing by mouse */
+}
+
+.comment-box textarea::placeholder {
+    color: var(--Bright-White); /* Set the placeholder text color */
+    opacity: 1; /* Ensure the placeholder is fully visible */
 }
 
 .comment-box button {
@@ -135,11 +142,14 @@ body {
     font-size: 0.875rem; /* Smaller text */
 }
 
+
+
 .comment-box button:hover {
     background-color: #d4b06a;
 }
 
 .comments {
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 8px; /* Reduced gap */
