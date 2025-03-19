@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
     const inputs = document.querySelectorAll(".input-container input");
 
     // Prevent autofill styling issues
@@ -23,23 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    signupForm.addEventListener("submit", (e) => {
+    loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const firstName = document.getElementById("firstName").value;
-        const lastName = document.getElementById("lastName").value;
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
+        const emailOrUsername = document.getElementById("emailOrUsername").value;
         const password = document.getElementById("password").value;
 
-        if (!firstName || !lastName || !username || !email || !password) {
+        if (!emailOrUsername || !password) {
             alert("Please fill out all fields.");
             return;
         }
 
-        console.log("Signup Data:", { firstName, lastName, username, email, password });
+        console.log("Login Data:", { emailOrUsername, password });
 
-        alert("Account created successfully! Redirecting to login...");
-        window.location.href = "log-in.html";
+        alert("Logged in successfully! Redirecting to the forum...");
+        window.location.href = "trends.html"; // Redirect to the forum page
     });
 });
