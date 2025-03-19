@@ -131,12 +131,12 @@ body {
     background-color: var(--Shade-Black);
     color: var(--Bright-White);
     font-size: 0.875rem;
-    outline: none;
+    outline: 1px solid #E1C57A;
     resize: none;
     height: 7%;
-    border: solid 0.2px var(--Shady-Black);
     min-width: 90%; /* Set a minimum width for the textarea */
 }
+
 .comment-box {
     display: flex;
     gap: 8px; /* Space between textarea and button */

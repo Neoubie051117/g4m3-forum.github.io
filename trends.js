@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const userIDs = ["Name's Clint 101", "Agent X", "Mr.Bright", "OK_Im Depressed"]; // Modify user IDs here
-    const userPictures = ["Game1.png", "Game2.png", "Game3.png", "Game4.png"]; // Replace with your profile picture paths
+    const userPictures = ["UserProfile1.png", "UserProfile2.png", "UserProfile3.png", "UserProfile4.png"]; // Replace with your profile picture paths
     const userComments = ["YEAAAAHHHH", "Another Grind....", "Ain't no way", "Nah I have too much games"]; // Modify comments here
 
     // ====================

@@ -1,0 +1,159 @@
+/* Support Section */
+.support-section {
+    padding: 20px;
+    background-color: var(--Soft-Black);
+    color: var(--Bright-White);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--Bland-Yellow);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--Bright-White);
+    margin-bottom: 20px;
+}
+
+/* Donation Box */
+.donation-box {
+    background-color: var(--Shady-Black);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.donation-box h2 {
+    font-size: 1.5rem;
+    color: var(--Bland-Yellow);
+    margin-bottom: 10px;
+}
+
+.donation-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.donation-amount {
+    background-color: var(--Bland-Yellow);
+    color: var(--Soft-Black);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.donation-amount:hover {
+    background-color: #d4b06a;
+}
+
+.custom-donation {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.custom-donation input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--Bland-Yellow);
+    background-color: var(--Shade-Black);
+    color: var(--Bright-White);
+    font-size: 1rem;
+}
+
+.custom-donation button {
+    background-color: var(--Bland-Yellow);
+    color: var(--Soft-Black);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.custom-donation button:hover {
+    background-color: #d4b06a;
+}
+
+.donation-message {
+    font-size: 0.875rem;
+    color: var(--Bland-Yellow);
+    text-align: center;
+}
+
+/* Support Form */
+.support-form {
+    background-color: var(--Shady-Black);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.support-form h2 {
+    font-size: 1.5rem;
+    color: var(--Bland-Yellow);
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--Bright-White);
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--Bland-Yellow);
+    background-color: var(--Shade-Black);
+    color: var(--Bright-White);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: var(--Bland-Yellow);
+    color: var(--Soft-Black);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #d4b06a;
+}
+
+.form-message {
+    font-size: 0.875rem;
+    color: var(--Bland-Yellow);
+    text-align: center;
+    margin-top: 10px;
+}

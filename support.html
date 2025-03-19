@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Permissions-Policy" content="interest-cohort=()">
+    <title>G4M3 Forum - Support</title>
+    <link rel="icon" type="image/png" href="G4M3ForumLogo1.png" loading="lazy">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="support.css">
+    <script src="script.js" defer></script>
+    <script src="support.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-bar">
+        <button class="hamburger-menu" id="menuButton" aria-label="Toggle menu">
+            <img src="hamburger-menu.svg" alt="Menu icon" class="hamburger-icon">
+        </button>
+        <div class="header-logo">
+            <img id="logo" src="G4M3Forumsvg.svg" alt="G4M3 Forum Logo">
+            <div class="title">G<span>4</span>M<span>3</span> FORUM</div>
+        </div>
+        <div class="nav-container">
+            <nav class="nav-bar">
+                <a href="trends.html" class="nav-link">TRENDS</a>
+                <a href="events.html" class="nav-link">EVENTS</a>
+                <a href="community.html" class="nav-link">COMMUNITY</a>
+                <a href="support.html" class="nav-link active">SUPPORT</a>
+            </nav>
+            <a href="sign-up.html" class="sign-up">SIGN UP</a>
+        </div>
+    </header>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="trends.html" class="nav-link">TRENDS</a>
+        <a href="events.html" class="nav-link">EVENTS</a>
+        <a href="community.html" class="nav-link">COMMUNITY</a>
+        <a href="support.html" class="nav-link active">SUPPORT</a>
+        <a href="sign-up.html" class="sign-up">SIGN UP</a>
+    </nav>
+
+    <!-- Support Section -->
+    <section class="support-section">
+        <div class="container">
+            <h1>Support G4M3 Forum</h1>
+            <p>Help us keep the forum running and improve your experience!</p>
+
+            <!-- Donation Section -->
+            <div class="donation-box">
+                <h2>Make a Donation</h2>
+                <p>Your support helps us maintain the forum and bring you the best content.</p>
+                <div class="donation-options">
+                    <button class="donation-amount" data-amount="5">$5</button>
+                    <button class="donation-amount" data-amount="10">$10</button>
+                    <button class="donation-amount" data-amount="20">$20</button>
+                    <button class="donation-amount" data-amount="50">$50</button>
+                </div>
+                <div class="custom-donation">
+                    <input type="number" id="customAmount" placeholder="Custom Amount">
+                    <button id="donateCustom">Donate</button>
+                </div>
+                <p class="donation-message" id="donationMessage"></p>
+            </div>
+
+            <!-- Support Form -->
+            <div class="support-form">
+                <h2>Contact Support</h2>
+                <form id="supportForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+                <p class="form-message" id="formMessage"></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
