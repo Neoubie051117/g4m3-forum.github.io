@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Variables for the hero slider
         let currentIndex = 0;
-        const slideDuration = 7000; // Duration for each slide (7 seconds)
+        const slideDuration = 4000; // Duration for each slide (7 seconds)
 
         // Function to change the background and text
         function changeBackground() {
