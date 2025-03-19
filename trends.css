@@ -4,6 +4,7 @@
     --Shade-Black: #10141a; /* Original color */
     --Shady-Black: #1b1f25; /* Original color */
     --Bright-White: #ffffff;
+    --Soft-White: #fcfcfc;
     --Bland-Yellow: #E1C57A;
     --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
@@ -116,15 +117,17 @@ body {
 }
 
 .comment-box textarea {
-    flex: 1;
-    padding: 8px;
-    border-radius: 4px;
-    border: none;
-    background-color: var(--Shade-Black);
-    color: var(--Bright-White);
-    font-size: 0.875rem; /* Smaller text */
-    outline: none; /* Remove the border outline */
-    resize: none; /* Disable resizing by mouse */
+    flex: 1; /* Allow textarea to take up remaining space */
+    padding: 8px; /* Add padding for better text spacing */
+    border-radius: 8px; /* Add border radius */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border */
+    background-color: var(--Shade-Black); /* Background color */
+    color: var(--Bright-White); /* Text color */
+    font-size: 0.875rem; /* Font size */
+    outline: none; /* Remove the default outline */
+    resize: none; /* Disable resizing */
+    height: 7%; /* Fixed height */
+    border: solid 0.2px var(--Shady-Black);
 }
 
 .comment-box textarea::placeholder {
@@ -180,4 +183,50 @@ body {
 
 .nav-link.active {
     color: var(--Bland-Yellow); /* Apply the active color */
+}
+
+@media (max-width: 600px) {
+    .comments {
+        width: 100%;
+        padding: 10px; /* Add padding for better spacing */
+        gap: 12px; /* Slightly more gap */
+        justify-content: center; /* Center align comments */
+    }
+
+    .comment {
+        flex-direction: column; /* Stack comments vertically */
+        align-items: flex-start; /* Align items to the left */
+        width: 100%; /* Ensure comment section fits width */
+    }
+
+    .comment strong {
+        font-size: 0.875rem; /* Smaller font size for better fitting */
+    }
+
+    .comment p {
+        font-size: 0.875rem; /* Slightly smaller text */
+        max-width: 100%; /* Ensure the text doesn't overflow */
+    }
+
+    .comment-box {
+        flex-direction: row; /* Change to row for horizontal layout */
+        gap: 12px;
+        width: 100%; /* Make comment box fit width */
+        align-items: center; /* Align items vertically in the center */
+    }
+
+    .comment-box textarea {
+        flex: 1; /* Allow textarea to take up remaining space */
+    }
+
+    .comment-box button {
+        width: auto; /* Reset width to auto for button */
+        font-size: 0.875rem; /* Slightly smaller button font size */
+    }
+
+    .profile-pic img {
+        width: 20px; /* Smaller profile picture for mobile */
+        height: 20px;
+        margin-right: 8px; /* Space between profile pic and comment */
+    }
 }
