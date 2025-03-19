@@ -52,11 +52,7 @@ p {
     border: 1px solid var(--Bland-Yellow);
     border-radius: 4px;
     padding: 10px;
-}
-
-.input-container img {
-    width: 20px;
-    height: 20px;
+    transition: border 0.2s ease-in-out;
 }
 
 .input-container input {
@@ -70,6 +66,21 @@ p {
 
 .input-container input::placeholder {
     color: rgba(255, 255, 255, 0.5);
+}
+
+.input-container:focus-within {
+    border: 1px solid #ffcc00;
+}
+
+/* Prevent autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--Shade-Black) inset !important;
+    color: var(--Bright-White) !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .signup-button {
