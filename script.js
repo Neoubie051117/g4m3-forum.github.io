@@ -41,10 +41,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
 
         const closeMenu = () => {
-            mobileNav.classList.remove('open');
-            backdrop.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-            menuButton.classList.remove('open'); // Remove open class from the hamburger menu
+            setTimeout(() => {
+                mobileNav.classList.remove('open');
+                backdrop.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+                menuButton.classList.remove('open'); // Remove open class from the hamburger menu
+            }, 100); // Small delay to allow the link to be clicked
         };
 
         menuButton.addEventListener('click', (e) => {
@@ -62,6 +64,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeMenu();
+        });
+
+        mobileNav.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                closeMenu();
+            }
         });
     }
 
