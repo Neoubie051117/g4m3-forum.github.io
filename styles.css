@@ -365,7 +365,7 @@ p {
 }
 
 .socials a:hover img {
-  transform: scale(1.1);
+  fill: var(--bland-yellow);
 }
 
 .footer-lower {
