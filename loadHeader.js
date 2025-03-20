@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Initial Fade-in Effect
     document.body.style.opacity = 0;
-    document.body.style.transition = "opacity 0.3s ease-in-out";
+    document.body.style.transition = "opacity 0.5s ease-in-out"; // Smoother fade-in
     setTimeout(() => document.body.style.opacity = 1, 50);
 
     // Load Header HTML
@@ -26,7 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 .fade-transition {
                     opacity: 0;
-                    transition: opacity 0.2s ease-in-out;
+                    transition: opacity 0.3s ease-in-out; /* Smoother fade transitions */
+                }
+                img[data-src] {
+                    filter: blur(5px); /* Blur effect for loading images */
+                    transition: filter 0.3s ease-in-out;
+                }
+                img.loaded {
+                    filter: blur(0); /* Remove blur after image loads */
                 }
             `;
             document.head.appendChild(style);
@@ -95,12 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (logo) {
                 logo.addEventListener('click', (e) => {
                     e.preventDefault();
-                    window.location.href = 'index.html';
+                    fadeOutAndNavigate('index.html');
                 });
                 logo.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        window.location.href = 'index.html';
+                        fadeOutAndNavigate('index.html');
                     }
                 });
             }
@@ -127,6 +134,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if (mobileNav) {
                 mobileNav.addEventListener('click', highlightActiveLink);
             }
+
+            // Lazy Load Images with Blur Effect
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            images.forEach(img => imageObserver.observe(img));
         })
         .catch(error => console.error('Error loading the header:', error));
 
@@ -136,11 +158,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const href = link.getAttribute("href");
             if (href && !href.startsWith("#") && !href.includes("mailto:")) {
                 e.preventDefault();
-                document.body.style.opacity = 0; // Fade out effect before navigating
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 200);
+                fadeOutAndNavigate(href);
             }
         });
     });
+
+    // Function to handle fade-out and navigation
+    function fadeOutAndNavigate(url) {
+        document.body.style.opacity = 0; // Fade out effect before navigating
+        setTimeout(() => {
+            window.location.href = url;
+        }, 300); // Match the transition duration
+    }
 });
