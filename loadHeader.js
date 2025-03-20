@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Initial Fade-in Effect
+    // Initial Fade-in Effect (Top-to-Bottom)
     document.body.style.opacity = 0;
-    document.body.style.transition = "opacity 0.5s ease-in-out"; // Smoother fade-in
-    setTimeout(() => document.body.style.opacity = 1, 50);
+    document.body.style.transform = "translateY(-20px)"; // Start slightly above
+    document.body.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out";
+    setTimeout(() => {
+        document.body.style.opacity = 1;
+        document.body.style.transform = "translateY(0)"; // Slide down to normal position
+    }, 50);
 
     // Load Header HTML
     fetch('header.html')
@@ -10,35 +14,32 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
 
-            // Forcefully Hide Scrollbars While Allowing Scrolling
+            // Add Global Styles
             const style = document.createElement('style');
             style.innerHTML = `
                 body {
-                    overflow: hidden !important; /* Prevent flickering */
-                }
-                body {
-                    -ms-overflow-style: none !important;  /* IE and Edge */
-                    scrollbar-width: none !important;     /* Firefox */
-                    overflow: auto !important; /* Ensure scrolling still works */
+                    overflow: hidden !important;
+                    -ms-overflow-style: none !important;
+                    scrollbar-width: none !important;
                 }
                 body::-webkit-scrollbar {
-                    display: none !important; /* Chrome, Safari, and Opera */
+                    display: none !important;
                 }
                 .fade-transition {
                     opacity: 0;
-                    transition: opacity 0.3s ease-in-out; /* Smoother fade transitions */
+                    transition: opacity 0.3s ease-in-out;
                 }
                 img[data-src] {
-                    filter: blur(5px); /* Blur effect for loading images */
+                    filter: blur(5px);
                     transition: filter 0.3s ease-in-out;
                 }
                 img.loaded {
-                    filter: blur(0); /* Remove blur after image loads */
+                    filter: blur(0);
                 }
             `;
             document.head.appendChild(style);
 
-            // Handle Mobile Menu
+            // Mobile Menu Logic
             const menuButton = document.getElementById('menuButton');
             const mobileNav = document.getElementById('mobileNav');
             const navLinks = document.querySelectorAll(".nav-link, .sign-up");
@@ -80,21 +81,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 mobileNav.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'A') {
-                        closeMenu();
-                    }
+                    if (e.target.tagName === 'A') closeMenu();
                 });
             }
 
-            // Preload Links for Faster Page Load
-            [...navLinks, ...mobileNavLinks].forEach(link => {
-                const href = link.getAttribute("href");
-                if (href) {
-                    const preloadLink = document.createElement("link");
-                    preloadLink.rel = "prefetch";
-                    preloadLink.href = href;
-                    document.head.appendChild(preloadLink);
-                }
+            // Preload Links
+            const preloadLinks = [...navLinks, ...mobileNavLinks].filter(link => link.href);
+            preloadLinks.forEach(link => {
+                const preloadLink = document.createElement("link");
+                preloadLink.rel = "prefetch";
+                preloadLink.href = link.href;
+                document.head.appendChild(preloadLink);
             });
 
             // Logo Navigation
@@ -112,38 +109,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-            // Highlight Active Page in Both Desktop and Mobile Navigation
+            // Highlight Active Link
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const normalizeUrl = (url) => url.replace(/\/$/, '').toLowerCase(); // Normalize URL
+            const normalizeUrl = (url) => url.replace(/\/$/, '').toLowerCase();
 
             const highlightActiveLink = () => {
                 [...navLinks, ...mobileNavLinks].forEach(link => {
                     const linkHref = link.getAttribute('href');
-                    if (normalizeUrl(linkHref) === normalizeUrl(currentPage)) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active'); // Ensure no other links are marked as active
-                    }
+                    link.classList.toggle('active', normalizeUrl(linkHref) === normalizeUrl(currentPage));
                 });
             };
 
-            // Run the highlight function after the mobile nav is fully loaded
             highlightActiveLink();
+            if (mobileNav) mobileNav.addEventListener('click', highlightActiveLink);
 
-            // Re-run the highlight function if the mobile nav is dynamically opened
-            if (mobileNav) {
-                mobileNav.addEventListener('click', highlightActiveLink);
-            }
-
-            // Lazy Load Images with Blur Effect
+            // Lazy Load Images
             const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
+            const imageObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
                         img.src = img.dataset.src;
                         img.classList.add('loaded');
-                        observer.unobserve(img);
+                        imageObserver.unobserve(img);
                     }
                 });
             }, { threshold: 0.1 });
@@ -163,11 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Function to handle fade-out and navigation
+    // Reusable Function for Fade-out and Navigation (Top-to-Bottom)
     function fadeOutAndNavigate(url) {
-        document.body.style.opacity = 0; // Fade out effect before navigating
-        setTimeout(() => {
-            window.location.href = url;
-        }, 300); // Match the transition duration
+        document.body.style.opacity = 0;
+        document.body.style.transform = "translateY(20px)"; // Slide down slightly
+        setTimeout(() => (window.location.href = url), 300);
     }
 });

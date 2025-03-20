@@ -190,6 +190,7 @@ html {
 /* Ensure the body can still scroll */
 body {
   overflow: auto;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .nav-link.active {
