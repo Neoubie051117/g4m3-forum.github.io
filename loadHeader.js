@@ -1,17 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Initial Fade-in Effect (Top-to-Bottom)
+    // Initial Fade-in Effect
     document.body.style.opacity = 0;
-<<<<<<< HEAD
-    document.body.style.transform = "translateY(-20px)"; // Start slightly above
-    document.body.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out";
-    setTimeout(() => {
-        document.body.style.opacity = 1;
-        document.body.style.transform = "translateY(0)"; // Slide down to normal position
-    }, 50);
-=======
-    document.body.style.transition = "opacity 0.3s ease-in-out";
-    setTimeout(() => document.body.style.opacity = 1, 50);
->>>>>>> parent of cadbbbf (Update loadHeader.js)
+    document.body.style.transition = "opacity 0.5s ease-in-out";
+    setTimeout(() => (document.body.style.opacity = 1), 50);
 
     // Load Header HTML
     fetch('header.html')
@@ -32,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 .fade-transition {
                     opacity: 0;
-<<<<<<< HEAD
                     transition: opacity 0.3s ease-in-out;
                 }
                 img[data-src] {
@@ -41,9 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 img.loaded {
                     filter: blur(0);
-=======
-                    transition: opacity 0.2s ease-in-out;
->>>>>>> parent of cadbbbf (Update loadHeader.js)
                 }
             `;
             document.head.appendChild(style);
@@ -108,12 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (logo) {
                 logo.addEventListener('click', (e) => {
                     e.preventDefault();
-                    window.location.href = 'index.html';
+                    fadeOutAndNavigate('index.html');
                 });
                 logo.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        window.location.href = 'index.html';
+                        fadeOutAndNavigate('index.html');
                     }
                 });
             }
@@ -132,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
             highlightActiveLink();
             if (mobileNav) mobileNav.addEventListener('click', highlightActiveLink);
 
-<<<<<<< HEAD
             // Lazy Load Images
             const images = document.querySelectorAll('img[data-src]');
             const imageObserver = new IntersectionObserver((entries) => {
@@ -147,12 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, { threshold: 0.1 });
 
             images.forEach(img => imageObserver.observe(img));
-=======
-            // Re-run the highlight function if the mobile nav is dynamically opened
-            if (mobileNav) {
-                mobileNav.addEventListener('click', highlightActiveLink);
-            }
->>>>>>> parent of cadbbbf (Update loadHeader.js)
         })
         .catch(error => console.error('Error loading the header:', error));
 
@@ -162,21 +142,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const href = link.getAttribute("href");
             if (href && !href.startsWith("#") && !href.includes("mailto:")) {
                 e.preventDefault();
-                document.body.style.opacity = 0; // Fade out effect before navigating
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 200);
+                fadeOutAndNavigate(href);
             }
         });
     });
-<<<<<<< HEAD
 
-    // Reusable Function for Fade-out and Navigation (Top-to-Bottom)
+    // Reusable Function for Fade-out and Navigation
     function fadeOutAndNavigate(url) {
         document.body.style.opacity = 0;
-        document.body.style.transform = "translateY(20px)"; // Slide down slightly
         setTimeout(() => (window.location.href = url), 300);
     }
-=======
->>>>>>> parent of cadbbbf (Update loadHeader.js)
 });
