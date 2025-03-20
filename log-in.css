@@ -1,3 +1,21 @@
+:root {
+    --Soft-Black: #0f0f0f;
+    --Shade-Black: #10141a;
+    --Shady-Black: #1b1f25;
+    --Bright-White: #ffffff;
+    --Soft-White: #fcfcfc;
+    --Bland-Yellow: #E1C57A;
+    --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--Soft-Black);
+    color: var(--Bright-White);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 /* Login Section */
 .login-section {
     padding: 20px;
