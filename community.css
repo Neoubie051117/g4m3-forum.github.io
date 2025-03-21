@@ -1,17 +1,17 @@
 /* General Styles */
 :root {
-    --Soft-Black: #0f0f0f;
-    --Shade-Black: #10141a;
-    --Shady-Black: #1b1f25;
-    --Bright-White: #ffffff;
-    --Soft-White: #fcfcfc;
-    --Bland-Yellow: #E1C57A;
+    --soft-black: #0f0f0f;
+    --shade-black: #10141a;
+    --shady-black: #1b1f25;
+    --bright-white: #ffffff;
+    --soft-white: #fcfcfc;
+    --bland-yellow: #E1C57A;
     --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 body {
-    background-color: var(--Soft-Black);
-    color: var(--Bright-White);
+    background-color: var(--soft-black);
+    color: var(--bright-white);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -25,7 +25,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%; /* Ensure container takes full width on smaller screens */
+    width: 100%;
 }
 
 /* Community Grid */
@@ -37,42 +37,49 @@ body {
 
 /* Community Card */
 .community-card {
-    background-color: var(--Shady-Black);
+    background-color: var(--shady-black);
     border-radius: 8px;
     padding: 16px;
     box-shadow: var(--box-shadow);
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
 
 .community-card h3 {
     font-size: 1.25rem;
-    margin: 0 0 8px;
-    color: var(--Bright-White);
+    margin-bottom: 8px;
+    color: var(--bright-white);
     font-weight: 600;
 }
 
 .community-card p {
     font-size: 0.9375rem;
     line-height: 1.4;
-    margin: 0 0 12px;
-    color: var(--Bright-White);
+    margin-bottom: 12px;
+    color: var(--bright-white);
 }
 
 .community-card .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
-    margin-bottom: 12px;
+    margin: 0 auto 12px;
 }
 
 .community-card .icon img {
     width: 100%;
     height: 100%;
+    filter: invert(1);
+    object-fit: contain;
 }
 
 .community-card .join-button {
-    background-color: var(--Bland-Yellow);
-    color: var(--Soft-Black);
+    background-color: var(--bland-yellow);
+    color: var(--soft-black);
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
@@ -87,7 +94,7 @@ body {
     background-color: #d4b06a;
 }
 
-/* Media Queries for Mobile View */
+/* Media Queries for Responsive Design */
 @media (max-width: 600px) {
     .community-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -125,63 +132,5 @@ body {
 }
 
 .nav-link.active {
-    color: var(--Bland-Yellow);
+    color: var(--bland-yellow);
 }
-
-.community-card .icon img {
-    filter: invert(1); /* Makes black SVGs white */
-    display: block;
-    margin: 0 auto; /* Centers the SVG */
-}
-
-.community-card .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px; /* Adjust as needed */
-    height: 50px;
-    margin: 0 auto 10px; /* Centers the container */
-}
-
-.community-card .icon img {
-    filter: invert(1); /* Turns black SVGs white */
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Ensures it scales properly */
-}
-
-/* Community Grid Animation */
-.community-grid {
-    opacity: 1;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease-in-out forwards 0.3s;
-}
-
-.community-card {
-    opacity: 1;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease-in-out forwards;
-}
-
-.community-card:nth-child(1) {
-    animation-delay: 0.3s;
-}
-
-.community-card:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.community-card:nth-child(3) {
-    animation-delay: 0.7s;
-}
-
-/* Hover Effects for Community Cards */
-.community-card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.community-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
