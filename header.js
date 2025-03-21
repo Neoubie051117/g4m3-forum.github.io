@@ -71,6 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         highlightActiveLink(navLinks);
         addPageTransition(navLinks);
+
+        // Dynamically adjust content margin for specific pages
+        adjustContentMargin();
+        window.addEventListener('resize', adjustContentMargin); // Adjust on window resize
     }
 
     function highlightActiveLink(navLinks) {
@@ -100,9 +104,38 @@ document.addEventListener("DOMContentLoaded", () => {
         const content = document.querySelector('.content');
         if (content) {
             content.style.opacity = 0;
-            setTimeout(() => window.location.href = url, 500);
+            setTimeout(() => {
+                window.location.href = url;
+                adjustContentMargin(); // Adjust margin after navigation
+            }, 500);
         } else {
             window.location.href = url;
+        }
+    }
+
+    // Function to adjust content margin based on the current page
+    function adjustContentMargin() {
+        const header = document.querySelector('.header-bar');
+        const content = document.querySelector('.content');
+
+        if (header && content) {
+            const currentPage = window.location.pathname.split('/').pop();
+
+            // Define margin rules for specific pages
+            const marginRules = {
+                "trends.html": "80px",
+                "events.html": "80px",
+                "community.html": "80px",
+                "support.html": "30px",
+                // Add more pages and their margins here if needed
+            };
+
+            // Apply the margin if the current page is in the marginRules object
+            if (marginRules[currentPage]) {
+                content.style.marginTop = marginRules[currentPage];
+            } else {
+                content.style.marginTop = "0"; // No margin for other pages
+            }
         }
     }
 });
