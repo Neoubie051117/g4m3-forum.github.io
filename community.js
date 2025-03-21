@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             title: "r/indiegaming",
-            description: "A subreddit for indie game developers and fans.",
+            description: "A vibrant subreddit for indie game developers, fans, and creative enthusiasts.",
             icon: "reddit", // Use the key from iconMap
             link: "https://www.reddit.com/r/indiegaming"
         },
@@ -84,8 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <h3>${community.title}</h3>
             <p>${community.description}</p>
-            <button class="join-button" onclick="window.location.href='${community.link}'">Join Now</button>
+            <button class="join-button">Join Now</button>
         `;
+
+        // Add event listener to the button to open the link in a new tab
+        const joinButton = communityElement.querySelector(".join-button");
+        joinButton.addEventListener("click", () => {
+            window.open(community.link, "_blank");
+        });
+
         communityContainer.appendChild(communityElement);
     });
 });
