@@ -1,68 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Permissions-Policy" content="interest-cohort=()">
-    <title>G4M3 Forum - Sign Up</title>
-    <link rel="icon" type="image/png" href="G4M3ForumLogo1.png" loading="lazy">
-    
-    <script src="header.js" defer></script>     <!---Header's Load File Script Inclusion-->
-    <link rel="stylesheet" href="header.css">   <!---Header's CSS--> 
-    <link rel="stylesheet" href="sign-up.css">  <!---Sign Up's CSS-->
-    <script src="sign-up.js" defer></script>    <!-- Sign Up's Scipts -->
-</head>
-<body>
-    <!-- Header Section -->
-
-    <!-- Signup Section -->
-    <section class="signup-section">
-        <div class="container">
-            <h1>Create Your Account</h1>
-            <p>Join the G4M3 Forum community today!</p>
-
-            <!-- Signup Form -->
-            <form id="signupForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <div class="input-container">
-                        <input type="text" id="username" name="username" placeholder="Choose a username" required>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Permissions-Policy" content="interest-cohort=()">
+        <title>G4M3 Forum - Sign Up</title>
+        <link rel="icon" type="image/png" href="G4M3ForumLogo1.png" loading="lazy">
+        
+        <script src="header.js" defer></script>     <!---Header's Load File Script Inclusion-->
+        <link rel="stylesheet" href="header.css">   <!---Header's CSS--> 
+        <link rel="stylesheet" href="sign-up.css">  <!---Sign Up's CSS-->
+        <script src="sign-up.js" defer></script>    <!-- Sign Up's Scipts -->
+    </head>
+    <body>
+        <!-- Header Section -->
+        
+        <div class="content">
+            <!-- Your page content goes here -->
+            
+            <!-- Signup Section -->
+            <section class="signup-section">
+                <div class="container">
+                    <h1>Create Your Account</h1>
+                    <p>Join the G4M3 Forum community today!</p>
+                    
+                    <!-- Signup Form -->
+                    <form id="signupForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <div class="input-container">
+                                <input type="text" id="username" name="username" placeholder="Choose a username" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <div class="input-container">
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <div class="input-container">
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-container">
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-container">
+                                <input type="password" id="password" name="password" placeholder="Create a password" required>
+                                <!-- Eye icon for show/hide password -->
+                                <img src="password-hide.svg" alt="Toggle password visibility" class="password-toggle" id="passwordToggle">
+                            </div>
+                        </div>
+                        <button type="submit" class="signup-button">Sign Up</button>
+                    </form>
+                    
+                    <!-- Already have an account? Log In -->
+                    <div class="login-prompt">
+                        <p>Already have an account? <a href="log-in.html" class="login-link">Log In</a></p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <div class="input-container">
-                        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <div class="input-container">
-                        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <div class="input-container">
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-container">
-                        <input type="password" id="password" name="password" placeholder="Create a password" required>
-                        <!-- Eye icon for show/hide password -->
-                        <img src="password-hide.svg" alt="Toggle password visibility" class="password-toggle" id="passwordToggle">
-                    </div>
-                </div>
-                <button type="submit" class="signup-button">Sign Up</button>
-            </form>
-
-            <!-- Already have an account? Log In -->
-            <div class="login-prompt">
-                <p>Already have an account? <a href="log-in.html" class="login-link">Log In</a></p>
-            </div>
+            </section>
         </div>
-    </section>
-</body>
+        
+    </body>
 </html>

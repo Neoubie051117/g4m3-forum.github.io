@@ -150,3 +150,38 @@ body {
     object-fit: contain; /* Ensures it scales properly */
 }
 
+/* Community Grid Animation */
+.community-grid {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-in-out forwards 0.3s;
+}
+
+.community-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+.community-card:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.community-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.community-card:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+/* Hover Effects for Community Cards */
+.community-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.community-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

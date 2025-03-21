@@ -197,3 +197,58 @@ body {
 .nav-link.active {
   color: var(--Bland-Yellow);
 }
+
+/* Global Animation Styles */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+/* Ensure smooth transitions for all elements */
+* {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Hover Effects for Nav Links */
+.nav-link {
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--Bland-Yellow);
+  transform: translateY(-2px);
+}
+
+/* Hover Effects for Buttons */
+.sign-up, .join-button, .login-button, .signup-button {
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.sign-up:hover, .join-button:hover, .login-button:hover, .signup-button:hover {
+  background-color: #d4b06a;
+  transform: translateY(-2px);
+}
+

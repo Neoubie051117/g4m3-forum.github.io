@@ -142,3 +142,32 @@ body {
 .nav-link.active {
     color: var(--Bland-Yellow);
 }
+
+/* Event Item Animation */
+.event-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+.event-item:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.event-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.event-item:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+/* Hover Effects for Event Items */
+.event-item {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

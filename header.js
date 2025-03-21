@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial Fade-in Effect for Content
     const content = document.querySelector('.content');
     if (content) {
-        content.style.opacity = 0;
+        content.style.opacity = 0; // Start with content hidden
         content.style.transition = "opacity 0.5s ease-in-out";
-        setTimeout(() => (content.style.opacity = 1), 50);
+        setTimeout(() => {
+            content.style.opacity = 1; // Fade in the content
+        }, 50); // Small delay to ensure the transition is applied
     }
 
     // Load Header HTML
@@ -142,6 +144,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", (e) => {
             const href = link.getAttribute("href");
+
+            // Exclude specific links (e.g., login-link, signup-link)
+            if (link.classList.contains("login-link") || link.classList.contains("signup-link")) {
+                return; // Allow default navigation
+            }
+
             if (href && !href.startsWith("#") && !href.includes("mailto:")) {
                 e.preventDefault();
                 fadeOutAndNavigate(href);
@@ -153,12 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function fadeOutAndNavigate(url) {
         const content = document.querySelector('.content');
         if (content) {
-            content.style.opacity = 0;
+            content.style.opacity = 0; // Fade out the content
             content.style.overflow = 'hidden'; // Disable scrolling during transition
             setTimeout(() => {
-                window.location.href = url;
+                window.location.href = url; // Navigate to the new page
                 content.style.overflow = 'auto'; // Re-enable scrolling after navigation
-            }, 300);
+            }, 500); // Wait for the fade-out animation to complete
         }
     }
 });
