@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Initial Fade-in Effect
-    document.body.style.opacity = 0;
-    document.body.style.transition = "opacity 0.5s ease-in-out";
-    setTimeout(() => (document.body.style.opacity = 1), 50);
+    // Initial Fade-in Effect for Content
+    const content = document.querySelector('.content');
+    if (content) {
+        content.style.opacity = 0;
+        content.style.transition = "opacity 0.5s ease-in-out";
+        setTimeout(() => (content.style.opacity = 1), 50);
+    }
 
     // Load Header HTML
     fetch('header.html')
@@ -12,27 +15,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Add Global Styles
             const style = document.createElement('style');
-style.innerHTML = `
-    body {
-        -ms-overflow-style: none !important;
-        scrollbar-width: none !important;
-    }
-    body::-webkit-scrollbar {
-        display: none !important;
-    }
-    .fade-transition {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-    img[data-src] {
-        filter: blur(5px);
-        transition: filter 0.3s ease-in-out;
-    }
-    img.loaded {
-        filter: blur(0);
-    }
-`;
-document.head.appendChild(style);
+            style.innerHTML = `
+                body {
+                    -ms-overflow-style: none !important;
+                    scrollbar-width: none !important;
+                }
+                body::-webkit-scrollbar {
+                    display: none !important;
+                }
+                .fade-transition {
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                }
+                img[data-src] {
+                    filter: blur(5px);
+                    transition: filter 0.3s ease-in-out;
+                }
+                img.loaded {
+                    filter: blur(0);
+                }
+            `;
+            document.head.appendChild(style);
 
             // Mobile Menu Logic
             const menuButton = document.getElementById('menuButton');
@@ -44,37 +47,37 @@ document.head.appendChild(style);
                 const backdrop = document.createElement('div');
                 backdrop.className = 'menu-backdrop fade-transition';
                 document.body.appendChild(backdrop);
-            
+
                 const toggleMenu = () => {
                     mobileNav.classList.toggle('open');
                     backdrop.classList.toggle('active');
                     document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : 'auto'; // Toggle overflow
                     menuButton.classList.toggle('open');
                 };
-            
+
                 const closeMenu = () => {
                     mobileNav.classList.remove('open');
                     backdrop.classList.remove('active');
                     document.body.style.overflow = 'auto'; // Re-enable scrolling
                     menuButton.classList.remove('open');
                 };
-            
+
                 menuButton.addEventListener('click', (e) => {
                     e.stopPropagation();
                     toggleMenu();
                 });
-            
+
                 backdrop.addEventListener('click', closeMenu);
                 document.addEventListener('click', (e) => {
                     if (!mobileNav.contains(e.target) && !menuButton.contains(e.target)) {
                         closeMenu();
                     }
                 });
-            
+
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') closeMenu();
                 });
-            
+
                 mobileNav.addEventListener('click', (e) => {
                     if (e.target.tagName === 'A') closeMenu();
                 });
@@ -148,11 +151,14 @@ document.head.appendChild(style);
 
     // Reusable Function for Fade-out and Navigation
     function fadeOutAndNavigate(url) {
-        document.body.style.opacity = 0;
-        document.body.style.overflow = 'hidden'; // Disable scrolling during transition
-        setTimeout(() => {
-            window.location.href = url;
-            document.body.style.overflow = 'auto'; // Re-enable scrolling after navigation
-        }, 300);
+        const content = document.querySelector('.content');
+        if (content) {
+            content.style.opacity = 0;
+            content.style.overflow = 'hidden'; // Disable scrolling during transition
+            setTimeout(() => {
+                window.location.href = url;
+                content.style.overflow = 'auto'; // Re-enable scrolling after navigation
+            }, 300);
+        }
     }
 });
