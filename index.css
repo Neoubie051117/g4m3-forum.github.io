@@ -72,12 +72,13 @@
   }
   
   .hero-text h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(3rem, 8vw, 5rem);
     font-weight: var(--font-weight-bold);
-    margin: 0;
+    color: var(--Bright-White);
     text-shadow: var(--glow-white);
+    margin: 0;
   }
-  
+
   .hero-text h1 span {
     color: var(--Bland-Yellow);
     text-shadow: var(--glow-yellow);
