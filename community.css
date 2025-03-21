@@ -152,13 +152,13 @@ body {
 
 /* Community Grid Animation */
 .community-grid {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease-in-out forwards 0.3s;
 }
 
 .community-card {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease-in-out forwards;
 }
