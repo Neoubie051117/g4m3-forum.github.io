@@ -1,3 +1,42 @@
+:root {
+    --logo-height: 40px;
+    --button-padding: 10px 20px;
+    --button-radius: 5px;
+    --nav-gap: 30px;
+    --header-padding: 15px 40px;
+    --footer-padding: 20px 40px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    --font-family: Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-title: 22px;
+    --font-weight-bold: 700;
+    --Soft-Black: #0f0f0f;
+    --Shade-Black: #10141a;
+    --Shady-Black: #1b1f25;
+    --Bright-White: #ffffff;
+    --Bland-Yellow: #E1C57A;
+    --mobile-menu-width: 270px;
+    --glow-white: 0 0 15px rgba(255, 255, 255, 1); /* Increased blur radius */
+    --glow-yellow: 0 0 15px rgba(225, 197, 122, 1); /* Increased blur radius */
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    outline: none;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background-color: var(--Soft-Black);
+    color: var(--Bright-White);
+  }
+
+
 /* Login Section */
 .login-section {
     padding: 20px;
