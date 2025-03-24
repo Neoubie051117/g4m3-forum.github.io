@@ -11,6 +11,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: var(--nav-gap);
+  margin: 0;
 }
 
 .quote {
@@ -60,6 +61,8 @@
   font-size: var(--font-size-base);
   margin-top: 20px;
   border-top: 2px solid var(--Shady-Black);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mail-button {
