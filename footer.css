@@ -73,7 +73,8 @@
 }
 
 .socials a:hover img {
-  filter: drop-shadow(var(--glow-yellow));
+  filter: brightness(0) invert(84%) sepia(32%) saturate(500%) hue-rotate(2deg);
+    box-shadow: var(--glow-white);
 }
 
 .footer-lower {
