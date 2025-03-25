@@ -138,21 +138,22 @@ html {
 .mobile-nav {
   position: fixed;
   top: 70px;
-  left: 0;
+  right: 0; /*puts the menu nav to the right side*/
   width: 50%;
   max-width: var(--mobile-menu-width);
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.75);
   height: calc(100vh - 100px);
   background-color: var(--Shady-Black);
   z-index: 1000;
-  transform: translateX(-100%);
+  transform: translateX(100%); /*100% makes it pop at right*/
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 20px;
   overflow-y: auto;
-  border-radius: 0 15px 15px 0;
+  border-radius: 15px 0 0 15px;
+  text-align: center;
 }
 
 .mobile-nav.open {
@@ -201,7 +202,7 @@ body.no-scroll {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 810px) {
   .hamburger-menu {
     display: block;
   }
